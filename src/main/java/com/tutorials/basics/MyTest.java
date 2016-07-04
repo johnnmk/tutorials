@@ -1,5 +1,7 @@
 package com.tutorials.basics;
 
+import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -19,6 +21,11 @@ public class MyTest {
 	    int height = original.getHeight();
 		System.out.println(original.getHeight());
 		
+		
+		Graphics graphics = original.getGraphics();
+		
+		Font font = new Font ("Hello world", Font.BOLD, 12);
+		graphics.drawString("hello world", 10, 30);
 		for(int y = 0; y < height; y++) {
 			for(int x =0; x < width;  x++) {
 		
@@ -37,8 +44,9 @@ public class MyTest {
 				original.setRGB(x, y, rgb);
 			}
 		}
-	
-		//boolean write = ImageIO.write(original, "png", new File("src/test/resources/images/output/sky1.out"));
+		
+		
+		boolean write = ImageIO.write(original, "png", new File("src/test/resources/images/output/sky.png"));
 		//System.out.println("Done " + write);
 	}
 
