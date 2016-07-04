@@ -2,6 +2,7 @@ package com.tutorials.escapes;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 
 public class JavaEscapeTest {
 
@@ -11,7 +12,15 @@ public class JavaEscapeTest {
 				  + "<body><p>Parsed HTML into a doc.</p></body></html>";
 				Document doc = Jsoup.parse(html);
 				
-				System.out.println(doc);
+				Document parseHTML = Jsoup.parse(html);
+				
+				Element element = parseHTML.body();
+				
+				for(Element nodes: element.getAllElements()){
+					
+					System.out.println(nodes.text());
+				}
+				//System.out.println(doc);
 
 	}
 
